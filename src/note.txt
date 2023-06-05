@@ -1,0 +1,95 @@
+bootstrap for react 
+    react bootstrap  = https://react-bootstrap.github.io/
+1.install bootstrap ->npm install react-bootstrap bootstrap
+
+
+
+
+    Restaurant listing App..............
+......................
+  1.create a project - npx create-react-app restaurant-listing-app
+  2.clean up the code, setup,logosvg,App.css
+  3.Run the project - npm start
+  4.install react bootstrap - npm install react-bootstrap bootstrap
+  5.choose a theme(theme store) -bootswatch downloads il arrow click->bootstrapmin.css download -> this file project(eg: restaurant-listing-app) nde src il paste chayya file
+  and import it in index.js  -> import './bootstrap.min.css'
+  6.font awesome cdnjs copy and paste it to index.html -> copylinkastag paste this font awesome cdn link in public->index.html (below title)
+  check working of fontawesome and  bootstrap by  <h1 className='text-center'><i className='fa-solid fa-home'></i>Restaurant App</h1>
+  in App.js <header></header>
+
+  7.create components 
+
+        components enna folder create chayyuga  , components inside folders their name must start with capital letter
+            ->Header -> Header.js -> inside that file  rfce kodukka appo content will displays
+            ->Footer ->Footer.js -> inside that rfce kodukka appo content will displays
+
+8. navbar choose from react bootstrap -. components->navbar-> last code copied and paste it in Header.js inside <div></div> and also import
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+
+9.to display all products display 
+  create folder AllRestaurant in components ->AllRestaurant.js file create chayyuga ( AllRestaurant folder is created to create angular contactapp similar self made json server data)
+  then place <AllRestaurant/> in section tag of App.js
+
+
+
+     backend setting
+ ........................
+ 1.create repository in git hub -> create repository    -> copy created repository path displayed in
+ above tab
+ 2.copy this path and come to react -> cmd -> git clone https://github.com/KhansaPeriganchira/restaurant-backend
+ now a backend folder is created there -> open ->cmd->code .
+ 3.install package.json file -> npm init -y
+ 4.npm i json-server cors
+ cors-> to connect front-end and backend
+ json-server -> 
+
+ 5.create .gitignore file in backend , inside that type node_modules(this way is given to avoid node_modules while pushing project to git  hub)
+6.axios npm -> library used to fetch data in react
+features:
+
+Make XMLHttpRequests from the browser
+Make http requests from node.js
+Supports the Promise API
+Intercept request and response
+Transform request and response data
+Cancel requests
+Automatic transforms for JSON data
+
+install command -> npm i axios , import axios from 'axios' -> import in AllRestaurant.js
+**********useEffect -> hook , backend data display , here fetch data function execute chayyan use chayyunnu
+7.create a file in components RestaurantCard.js  (to dispaly array of data in card format)
+import created file in AllRestaurant.js by typing its name there then automatic  imported
+7.create a file in component VieRestaurant.js file
+
+react redirecting
+....................
+in react to  applay navigation BroserRouter -> complete routing in page
+Routes->more than one page redirect
+Route -> single page routing
+
+react-router-dom install command -> npm install --save react-router-dom
+go to index.js (main file) import it there ,import {BrowserRouter} from 'react-router-dom';
+ {/* setting <App/> inside this <BrowserRouter> to set entire app for routing  */}
+
+    <BrowserRouter>
+    <App />
+    </BrowserRouter>
+
+    App.js il import ViewRestaurant then, give this in section tag
+<section>
+      {/* <h1 className='text-center'><i className='fa-solid fa-home'></i>Restaurant App</h1> */}
+
+       <Router>
+        <Route path='/' element={<AllRestaurants/>}/>
+        <Route path='/view/:id' element={<ViewRestaurant/>}/>
+       </Router>
+
+
+
+      {/* <AllRestaurants/> comment this not neede */}
+      </section>
+
+    8. how to use link  parrannu kodukka in react <Link></Link> inside content koduthan
+    here 'to' attribute used instead of href in <a> link tag
+    9.corresponding id ninnu data fetch chayuunuu
